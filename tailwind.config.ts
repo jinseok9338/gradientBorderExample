@@ -6,15 +6,38 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  //darkMode: "class",
+
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateX(30%) translateY(30%) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateX(30%) translateY(30%) rotate(-360deg)",
+          },
+        },
+        rotate: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+      },
+
+      animation: {
+        orbit: "orbit 5s linear infinite",
+        rotate: "rotate 5s linear infinite",
       },
     },
   },
   plugins: [],
 };
+
 export default config;
